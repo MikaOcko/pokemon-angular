@@ -1,6 +1,6 @@
-export interface ApiResponse {
+export interface ApiResponse<T> {
     infos: InfosResponse;
-    results:unknown;
+    results:T;
 }
 
 export interface InfosResponse{

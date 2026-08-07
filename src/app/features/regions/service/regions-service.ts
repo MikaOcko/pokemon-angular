@@ -1,18 +1,25 @@
-import { inject, Service, signal } from '@angular/core';
+import { inject, Service, signal, Injectable } from '@angular/core';
 import { Region } from '../types/region.type';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
+import { ApiResponse } from '../../../shared/types/api-response.types';
 
-@Service()
+@Injectable({
+  providedIn: 'root',
+})
+
 export class RegionsService {
-    private http = inject(HttpClient);
+    private readonly http = inject(HttpClient);
     private regions = signal<Region[]>([]);
     readonly url = 'https://pokeapi.co/api/v2/region/';
+    readonly regionSignal = this.regions.asReadonly();
 
     // logique pour récupérer toutes les régions
-    getRegions():Observable<Region[]> {
-        return this.http.get<Region[]>(this.url).pipe(
-            tap(regions => this.regions.set(regions))
+    getRegions():Observable<ApiResponse<Region[]>> {
+        return this.http
+        .get<ApiResponse<Region[]>>(this.url)
+        .pipe(
+            tap((response:ApiResponse<Region[]>) => this.regions.set(response.results))
         );
     }
 }

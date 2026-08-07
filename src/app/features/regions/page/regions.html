@@ -1,1 +1,11 @@
-<p>regions works!</p>
+<section>
+    <h1>Régions dans le monde des Pokémons</h1>
+    <div>
+        <!-- Liste des régions -->
+        <ul>
+            @for(region of regions(); track region){
+                <li>{{region.name}}</li>
+            }
+        </ul>
+    </div>
+</section>
