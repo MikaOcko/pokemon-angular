@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { ITEMS_PATHS, POKEMON_PATHS, REGIONS_PATHS, ROOT_PATHS } from './core/path.constants';
 import { Home } from './features/home/home';
-import { Regions } from './features/regions/regions';
+import { Regions } from './features/regions/page/regions';
 import { Pokemons } from './features/pokemons/pokemons';
 import { Items } from './features/items/items';
 import { PageNotFound } from './features/page-not-found/page-not-found';
