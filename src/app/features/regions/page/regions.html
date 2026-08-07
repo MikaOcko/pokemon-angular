@@ -1,11 +1,17 @@
-<section>
-    <h1>Régions dans le monde des Pokémons</h1>
-    <div>
+<section class="p-8">
+    <h1 class="text-center font-bold text-xl my-8">Régions du monde pokémon</h1>
+    <div class="grid grid-cols-4 gap-4">
         <!-- Liste des régions -->
-        <ul>
-            @for(region of regions(); track region){
-                <li>{{region.name}}</li>
-            }
-        </ul>
+        @for(region of regions(); track region){
+            <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                <img class="w-full" src="./image-placeholder.jpg" alt="Sunset in the mountains">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2 capitalize">{{region.name}}</div>
+                    <p class="text-gray-700 text-base">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </p>
+                </div>
+            </div>
+        }
     </div>
 </section>
